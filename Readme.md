@@ -8,7 +8,7 @@ i just wannted make it.
 
 # how to?
 
-1. if you use the tool in the frist time, when it shows DirectoryBrowse dialog<br>
+1. if you use the tool in the first time, when it shows DirectoryBrowse dialog<br>
    please select MHRise install path directory
 2. please choise mods you wanna install
 3. Push Go! and Launch Game! have fun :)
