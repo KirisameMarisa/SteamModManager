@@ -106,11 +106,13 @@ class ReFrameworkApplication(ModContoller):
 class ReFrameworkModController(ModContoller):
     def __init__(self, inPath: Path, inGameInstallPath:Path) -> None:
         super().__init__(inPath, inGameInstallPath)
-        for f in inPath.glob("**/*"):
-            if ".lua" == f.suffix:
-                self.mFiles.append(FileController(f, self.mGameInstallPath / "reframework" / "autorun" / f.name))
-            elif ".dll" == f.suffix:
-                self.mFiles.append(FileController(f, self.mGameInstallPath / "reframework" / "plugins" / f.name))
+        reframework = inPath / "reframework"
+        for f in reframework.glob("**/*"):
+            if f.is_dir():
+                continue
+            relative = ""
+            relative = f.relative_to(inPath)
+            self.mFiles.append(FileController(f, self.mGameInstallPath / relative))
         self.__check_installed__()
 
 class FirstNativeModController(ModContoller):
